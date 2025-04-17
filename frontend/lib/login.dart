@@ -19,45 +19,46 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: const Color.fromARGB(255,66,145,150),
       body: SafeArea(
         child: Stack(
           children: [
             // Background decorative circles
             Positioned(
               top: 0,
-              left: -50,
+              left: -80,
               child: Container(
                 width: 150,
                 height: 150,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xFFD1D6DC),
+                  color: Color.fromARGB(200, 108, 122, 131),
                 ),
               ),
             ),
             Positioned(
-              top: -50,
+              top: -80,
               left: 0,
               child: Container(
                 width: 150,
                 height: 150,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0x809D4B4B),
+                  color: Color.fromARGB(127, 139, 13, 13),
                 ),
               ),
             ),
+
 
             // Content
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 60),
+                const SizedBox(height: 170),
 
                 // Welcome text
                 const Text(
-                  "Welcome Back!",
+                  "Admin Login!",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -69,11 +70,22 @@ class LoginScreen extends StatelessWidget {
 
                 // Image
                 Center(
-                  child: Image.asset(
-                    'assets/login.png',
-                    height: 200,
+                  child: Container(
+                    height: 190,
+                    width: 190,
+                    decoration: BoxDecoration(
+                      color: Colors.black, // Black circle background
+                      shape: BoxShape.circle,
+                    ),
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/ima_logo.png',
+                        height: 190,
+                      ),
+                    ),
                   ),
                 ),
+
 
                 const SizedBox(height: 30),
 

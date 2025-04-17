@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'loading_page.dart';
+import 'login.dart'; // Replace with your actual login screen file
 
 void main() => runApp(const MyApp());
 
@@ -21,7 +22,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255,66,145,150),
+      backgroundColor: const Color.fromARGB(255, 66, 145, 150),
       body: SafeArea(
         child: Stack(
           children: [
@@ -60,22 +61,34 @@ class SplashScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: GestureDetector(
-                      onTap: () {
+                      onTap: () async {
+                        // Show loading screen
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const LoadingPage()),
+                        );
+
+                        // Simulate loading
+                        await Future.delayed(const Duration(seconds: 1));
+
+                        // Navigate to LoginScreen and remove LoadingPage
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()),
                         );
                       },
                       child: CircleAvatar(
-                        backgroundColor: Colors.white,
+                        backgroundColor: Colors.black,
                         radius: 22,
-                        child: Icon(Icons.person, color: Colors.black),
+                        child: const Icon(Icons.person, color: Colors.white),
                       ),
                     ),
                   ),
                 ),
 
-                const Spacer(flex: 1),
+                const Spacer(flex: 4),
 
                 // Illustration
                 Center(
@@ -88,14 +101,17 @@ class SplashScreen extends StatelessWidget {
                 const SizedBox(height: 30),
 
                 // Title
-                const Text(
-                  "IMA",
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
-                    color: Colors.black87,
-                    fontStyle: FontStyle.italic
+                const Center(
+                  child: Text(
+                    "Welcome to Indian Military Academy",
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                      color: Colors.black87,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
 
@@ -105,7 +121,7 @@ class SplashScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32.0),
                   child: Text(
-                    "This is the application dealing with all the study materials for current affairs and military history.",
+                    "This is the application dealing with all monthly newsletters for IMA as well as study materials for Officer Cadets",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14,
@@ -129,7 +145,7 @@ class SplashScreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF8B0D0D),
+                            backgroundColor: const Color(0xFF8B0D0D),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             ),
@@ -145,20 +161,20 @@ class SplashScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 14),
 
-                      // Contact Us Button
+                      // About Us Button
                       SizedBox(
                         width: double.infinity,
                         height: 50,
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF6C7A83),
+                            backgroundColor: const Color(0xFF6C7A83),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             ),
                           ),
                           child: const Text(
-                            "Contact Us",
+                            "About Us",
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
