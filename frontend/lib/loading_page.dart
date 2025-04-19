@@ -44,15 +44,6 @@ class LoadingPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             // Custom Animated Text
-            const Text(
-              "Deploying Mission Data...",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white70,
-                fontWeight: FontWeight.w500,
-                letterSpacing: 1.5,
-              ),
-            ),
           ],
         ),
       ),
