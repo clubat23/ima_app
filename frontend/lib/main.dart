@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'loading_page.dart';
-import 'login.dart'; // Replace with your actual login screen file
+import 'login.dart'; 
+import 'about_us.dart';
 
 void main() => runApp(const MyApp());
 
@@ -166,9 +167,24 @@ class SplashScreen extends StatelessWidget {
                         width: double.infinity,
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            // Navigate to the LoadingPage first
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const LoadingPage()),
+                            );
+
+                            // Simulate loading with a delay
+                            await Future.delayed(const Duration(seconds: 1));
+
+                            // After loading is complete, navigate to AboutUsPage
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => const AboutUsPage()),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF6C7A83),
+                            backgroundColor: const Color.fromARGB(255, 97, 110, 117),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4),
                             ),
@@ -182,6 +198,7 @@ class SplashScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+
                     ],
                   ),
                 ),

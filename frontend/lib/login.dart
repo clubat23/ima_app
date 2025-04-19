@@ -94,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: "Enter your email",
+                      hintText: "Enter your userID",
                       filled: true,
                       fillColor: Colors.white,
                       contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
@@ -141,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF6C7A83),
+                        backgroundColor: const Color.fromARGB(255, 97, 110, 117),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6),
                         ),
